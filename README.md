@@ -22,6 +22,25 @@
 
 ---
 
+## 🤖 AI 参与声明
+
+本项目的**逆向分析、代码实现、文档撰写**均在 **AI 辅助**下完成（人机协作）。
+
+有几点需要说清楚：
+
+- **所有协议结论都经过实测验证**，没有一条是"推测"出来就写进文档的 —— 跑不通的宁可留白
+- **AI 给出的初版结论出过错**，而且错得不轻：
+  - 一度以为提交回答是 `0xec8_1 addComment`（其实那只是加评论），真正的命令是 **`0xec7_1 doAnswer`**
+  - 一度以为 `send_packet` 的 `data` 只要业务体（其实要**完整 OIDB 信封**）
+  - 一度以为字段号能靠 wire type 探出来（其实服务端对不存在的字段号**静默忽略**，这条完全无效）
+  
+  这些都是**靠实测纠正的**，纠错过程保留在 `docs/字段号-实测.md` 里
+- 人工负责：实测验证、方案取舍、踩坑纠错
+
+> 一句话：**结论是实测出来的，AI 只是加速了这个过程。**
+
+---
+
 ## ✨ 它能干什么
 
 QQ 的「匿问我答」是资料卡里的一个内嵌小程序：别人匿名向你提问，你回答后展示在资料卡上。
@@ -181,6 +200,13 @@ Reverse-engineered implementation of QQ's **Anonymous Q&A** (匿问我答) featu
 > Comply with Tencent's ToS and **use at your own risk**. Do **not** use it for harassment,
 > spam, or any abusive behaviour. The interfaces may break or get rate-limited at any time.
 > No Tencent code or assets are included. This is not legal advice.
+
+> **AI disclosure** — The reverse engineering, code and documentation were produced with
+> **AI assistance** (human–AI collaboration). Every protocol conclusion was **verified
+> experimentally** — nothing was written down just because a model guessed it. The initial
+> AI conclusions were wrong in several places (e.g. the answer-submit command, the OIDB
+> envelope structure, the field-number probing method); the correction process is preserved
+> in `docs/字段号-实测.md`. Humans handled validation, trade-offs and debugging.
 
 #### How it works
 
