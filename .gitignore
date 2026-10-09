@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+.DS_Store
+.venv/
+venv/
+node_modules/
+# 别把腾讯的小程序 bundle 提交进来（版权）
+*.bundle.js
+question.js
+write.js
+answer.js
